@@ -1,0 +1,18 @@
+# Build outputs
+bin/
+obj/
+*.o
+*.obj
+*.exe
+*.out
+
+# Visual Studio / VS Code
+.vs/
+.vscode/
+*.sln.docstates
+*.suo
+*.user
+
+# OS generated files
+.DS_Store
+Thumbs.db
