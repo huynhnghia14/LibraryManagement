@@ -9,10 +9,15 @@ obj/
 # Visual Studio / VS Code
 .vs/
 .vscode/
+Debug/
+Release/
+x64/
 *.sln.docstates
 *.suo
 *.user
 
-# OS generated files
+# OS / editor generated files
 .DS_Store
 Thumbs.db
+.~lock.*
+~$*
