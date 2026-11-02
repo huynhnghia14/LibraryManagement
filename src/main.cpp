@@ -1,7 +1,9 @@
-#include <iostream>
+#include "Menu.h"
+#include "UI.h"
 
 int main() {
-    std::cout << "=== HE THONG QUAN LY THU VIEN ===" << std::endl;
-    std::cout << "Khoi tao he thong thanh cong." << std::endl;
+    UI::printTitle("HE THONG QUAN LY THU VIEN");
+    Menu menu;
+    menu.run();
     return 0;
 }

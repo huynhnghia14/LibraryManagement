@@ -31,6 +31,19 @@ LibraryManagement/
 └── README.md
 ```
 
+## Cấu trúc mã nguồn
+
+| Tầng | File (`include/*.h`, `src/*.cpp`) |
+|---|---|
+| Mô hình dữ liệu (struct) | `Date` `Book` `Reader` `BorrowTicket` `Transaction` `Account` `Config` `Result` |
+| Cấu trúc dữ liệu | `AVLTree` `BST` `HashTable` `LinkedList` `DynamicArray` (template) · `Graph` `Trie` |
+| Facade | `Library` – gom toàn bộ CTDL, nạp / lưu dữ liệu |
+| Nghiệp vụ | `BookService` `ReaderService` `BorrowService` `StatisticsService` `RecommendService` |
+| Lưu trữ | `FileStorage` `Logger` `Exporter` |
+| Giao diện | `Menu` `UI` `Auth` `Utils` · `main.cpp` |
+
+Các header đã khai báo đầy đủ struct và lớp theo `docs/Design.pdf`; phần cài đặt được bổ sung theo tiến độ từng tuần (xem Checklist).
+
 ## Biên dịch & chạy
 
 ```bash
