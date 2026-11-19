@@ -10,7 +10,7 @@ int showMenu(const std::string& title, const char* const items[], int n) {
     return UI::inputInt("Chon [0-" + std::to_string(n) + "]: ", 0, n);
 }
 
-Menu::Menu(Library& l) : lib(l), bookSvc(l) {}
+Menu::Menu(Library& l) : lib(l), bookSvc(l), readerSvc(l) {}
 
 void Menu::notImplemented(int week) {
     UI::printMessage("Chuc nang se duoc cai dat o tuan " + std::to_string(week), false);
@@ -34,14 +34,6 @@ void Menu::run() {
         }
     }
     UI::printMessage("Tam biet!", true);
-}
-
-void Menu::readerMenu() {
-    static const char* const ITEMS[] = {
-        "1. Them doc gia", "2. Sua / gia han / khoa the", "3. Xoa doc gia",
-        "4. Tim theo CMND (Hash)", "5. Danh sach doc gia", "6. Thong ke theo loai the"
-    };
-    while (showMenu("QUAN LY DOC GIA", ITEMS, 6) > 0) notImplemented(4);
 }
 
 void Menu::borrowMenu() {

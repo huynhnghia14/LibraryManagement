@@ -34,7 +34,14 @@ $(BIN_DIR)/test_%: $(TEST_DIR)/test_%.cpp $(LIB_OBJS) | $(BIN_DIR)
 test: $(TEST_BINS)
 	@for t in $(TEST_BINS); do echo "== $$t"; ./$$t || exit 1; done
 
+# Đo hiệu năng (tối ưu -O2 để số liệu sát thực tế)
+$(BIN_DIR)/benchmark: $(TEST_DIR)/benchmark.cpp $(LIB_OBJS) | $(BIN_DIR)
+	$(CXX) $(CXXFLAGS) -O2 -o $@ $^
+
+bench: $(BIN_DIR)/benchmark
+	./$(BIN_DIR)/benchmark
+
 clean:
 	rm -rf $(BIN_DIR)
 
-.PHONY: all run test clean
+.PHONY: all run test bench clean

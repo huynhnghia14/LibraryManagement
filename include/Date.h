@@ -11,6 +11,7 @@ struct Date {
     long toDays() const;                            // số ngày kể từ 01/01/1900
     static Date fromDays(long days);
     Date addDays(int n) const;                      // ngày hẹn trả = ngày mượn + n
+    Date addMonths(int n) const;                    // hạn thẻ = ngày đăng ký + n tháng
     static int daysBetween(const Date& a, const Date& b);   // b - a
     static Date today();
     std::string toString() const;                   // "dd/mm/yyyy"

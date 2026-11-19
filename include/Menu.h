@@ -4,11 +4,13 @@
 #include <string>
 #include "Library.h"
 #include "BookService.h"
+#include "ReaderService.h"
 
 // Menu chính và các menu con; mỗi mục: nhập -> gọi Service -> hiển thị Result
 class Menu {
-    Library&    lib;
-    BookService bookSvc;
+    Library&      lib;
+    BookService   bookSvc;
+    ReaderService readerSvc;
 
     // Quản lý sách (MenuBook.cpp)
     void bookMenu();
@@ -21,7 +23,18 @@ class Menu {
     void printBookHeader();
     void printBook(const Book& b);
 
+    // Quản lý độc giả (MenuReader.cpp)
     void readerMenu();
+    bool inputReaderInfo(Reader& r, const Reader* old);
+    void addReaderUI();
+    void editReaderUI();
+    void removeReaderUI();
+    void findReaderUI();
+    void listReadersUI();
+    void readerStatsUI();
+    void printReaderHeader();
+    void printReader(const Reader& r);
+
     void borrowMenu();
     void statsMenu();
     void recommendMenu();

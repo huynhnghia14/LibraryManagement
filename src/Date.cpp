@@ -45,6 +45,16 @@ Date Date::addDays(int n) const {
     return fromDays(toDays() + n);
 }
 
+Date Date::addMonths(int n) const {
+    int total = year * 12 + (month - 1) + n;
+    Date d;
+    d.year = total / 12;
+    d.month = total % 12 + 1;
+    int last = daysInMonth(d.month, d.year);
+    d.day = day > last ? last : day;              // 31/01 + 1 tháng -> 28/02 hoặc 29/02
+    return d;
+}
+
 int Date::daysBetween(const Date& a, const Date& b) {
     return (int)(b.toDays() - a.toDays());
 }
