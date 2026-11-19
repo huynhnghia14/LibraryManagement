@@ -3,6 +3,7 @@
 
 #include <string>
 #include "Library.h"
+#include "DynamicArray.h"
 #include "Result.h"
 
 // Quản lý sách (FR-B): thêm / sửa / xóa / tìm / in danh mục

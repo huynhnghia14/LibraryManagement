@@ -35,13 +35,14 @@ LibraryManagement/
 
 | Tầng | File (`include/*.h`, `src/*.cpp`) |
 |---|---|
-| Mô hình dữ liệu (struct) | `Date` `Book` `Reader` `Config` `Result` |
-| Cấu trúc dữ liệu | `AVLTree` `BST` `HashTable` (template) |
+| Mô hình dữ liệu (struct) | `Date` `Book` `Reader` `BorrowTicket` `Transaction` `Config` `Result` |
+| Cấu trúc dữ liệu | `AVLTree` `BST` `HashTable` `LinkedList` `DynamicArray` (template) |
 | Facade | `Library` – gom toàn bộ CTDL, nạp / lưu dữ liệu |
 | Nghiệp vụ | `BookService` `ReaderService` |
+| Lưu trữ | `FileStorage` `Logger` `Exporter` |
 | Giao diện | `Menu` `UI` `Utils` · `main.cpp` |
 
-Các module còn lại trong `docs/Design.pdf` (lưu file, mượn – trả, thống kê, gợi ý, Trie, đăng nhập) được bổ sung theo tiến độ từng tuần (xem Checklist).
+Các module còn lại trong `docs/Design.pdf` (mượn – trả, thống kê, gợi ý, Trie, đăng nhập) được bổ sung theo tiến độ từng tuần (xem Checklist).
 
 ## Biên dịch & chạy
 
@@ -67,7 +68,7 @@ Yêu cầu: g++ hỗ trợ C++11 (hoặc Dev-C++, Code::Blocks, Visual Studio).
 | 2 | ☑ Design.pdf ☑ Sơ đồ lớp ☑ Định nghĩa struct |
 | 3 | ☑ AVL ☑ BST ☑ Test quản lý sách |
 | 4 | ☑ Hash Table ☑ Test quản lý độc giả |
-| 5 | ☐ LinkedList ☐ Dynamic Array ☐ File I/O |
+| 5 | ☑ LinkedList ☑ Dynamic Array ☑ File I/O |
 | 6 | ☐ Mượn sách ☐ Trả sách ☐ Tính phạt |
 | 7 | ☐ Graph ☐ BFS/DFS ☐ Thống kê top 10 |
 | 8 | ☐ CTDL mới (Trie) ☐ Tích hợp ☐ Demo |

@@ -6,7 +6,7 @@
 
 namespace {
     const int READER_COLS = 7;
-    const int READER_WIDTHS[READER_COLS] = {12, 24, 26, 10, 10, 10, 7};
+    const int READER_WIDTHS[READER_COLS] = {12, 24, 24, 10, 10, 10, 9};
 
     const char* statusName(int s) { return s == READER_LOCKED ? "Khoa" : "Hoat dong"; }
 }
@@ -79,7 +79,7 @@ void Menu::addReaderUI() {
     }
     Reader r = readerSvc.makeReader(cmnd, "", "", "", CARD_NORMAL, Date::today());
     if (!inputReaderInfo(r, nullptr)) return;
-    UI::printResult(readerSvc.addReader(r));
+    commit(readerSvc.addReader(r));
 }
 
 void Menu::editReaderUI() {
@@ -98,11 +98,11 @@ void Menu::editReaderUI() {
     int c = showMenu("CHON THAO TAC", ITEMS, 4);
     if (c == 1) {
         Reader r = *cur;
-        if (inputReaderInfo(r, cur)) UI::printResult(readerSvc.editReader(cmnd, r));
+        if (inputReaderInfo(r, cur)) commit(readerSvc.editReader(cmnd, r));
     } else if (c == 2) {
-        UI::printResult(readerSvc.renewCard(cmnd, Date::today()));
+        commit(readerSvc.renewCard(cmnd, Date::today()));
     } else if (c == 3 || c == 4) {
-        UI::printResult(readerSvc.lockReader(cmnd, c == 3));
+        commit(readerSvc.lockReader(cmnd, c == 3));
     }
 }
 
@@ -118,7 +118,7 @@ void Menu::removeReaderUI() {
     printReader(*cur);
     UI::printLine(READER_WIDTHS, READER_COLS);
     if (!UI::confirm("Xac nhan xoa doc gia nay?")) return;
-    UI::printResult(readerSvc.removeReader(cmnd));
+    commit(readerSvc.removeReader(cmnd));
 }
 
 void Menu::findReaderUI() {

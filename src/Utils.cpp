@@ -122,4 +122,16 @@ int currentYear() {
     return localtime(&now)->tm_year + 1900;
 }
 
+int split(const std::string& line, char sep, std::string parts[], int maxParts) {
+    int n = 0;
+    size_t start = 0;
+    while (n < maxParts) {
+        size_t pos = line.find(sep, start);
+        parts[n++] = trim(line.substr(start, pos == std::string::npos ? std::string::npos : pos - start));
+        if (pos == std::string::npos) break;
+        start = pos + 1;
+    }
+    return n;
+}
+
 }

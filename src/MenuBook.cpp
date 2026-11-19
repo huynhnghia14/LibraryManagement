@@ -1,6 +1,7 @@
 #include "Menu.h"
 #include "UI.h"
 #include "Utils.h"
+#include "Exporter.h"
 
 #include <iostream>
 #include <cstdlib>
@@ -26,7 +27,8 @@ void Menu::bookMenu() {
             case 5: listBooksUI(false); break;
             case 6: listBooksUI(true); break;
             case 7: notImplemented(8); break;
-            default: notImplemented(5); break;
+            case 8: importBooksUI(); break;
+            case 9: exportBooksUI(); break;
         }
     }
 }
@@ -88,7 +90,7 @@ void Menu::addBookUI() {
     }
     Book b = BookService::makeBook(isbn, "", "", "", 0, 0);
     if (!inputBook(b, nullptr)) return;
-    UI::printResult(bookSvc.addBook(b));
+    commit(bookSvc.addBook(b));
 }
 
 void Menu::editBookUI() {
@@ -101,7 +103,7 @@ void Menu::editBookUI() {
     }
     Book b = *cur;
     if (!inputBook(b, cur)) return;
-    UI::printResult(bookSvc.editBook(isbn, b));
+    commit(bookSvc.editBook(isbn, b));
 }
 
 void Menu::removeBookUI() {
@@ -116,7 +118,7 @@ void Menu::removeBookUI() {
     printBook(*cur);
     UI::printLine(BOOK_WIDTHS, BOOK_COLS);
     if (!UI::confirm("Xac nhan xoa sach nay?")) return;
-    UI::printResult(bookSvc.removeBook(isbn));
+    commit(bookSvc.removeBook(isbn));
 }
 
 void Menu::findBookUI() {
@@ -143,4 +145,22 @@ void Menu::listBooksUI(bool byTitle) {
     else         bookSvc.listByIsbn([&](const Book& b) { printBook(b); });
     UI::printLine(BOOK_WIDTHS, BOOK_COLS);
     std::cout << "Tong so: " << bookSvc.count() << " dau sach\n";
+}
+
+void Menu::importBooksUI() {
+    UI::printTitle("IMPORT SACH TU FILE VAN BAN");
+    std::cout << "Dinh dang moi dong: ISBN|Ten sach|Tac gia|The loai|Nam XB|So luong\n";
+    std::string path = UI::inputString("Duong dan file (vd: data/sample/books.txt): ", 200);
+    if (path.empty()) return;
+    commit(Exporter::importBooksTxt(lib, path));
+}
+
+void Menu::exportBooksUI() {
+    UI::printTitle("EXPORT DANH MUC SACH");
+    int kind = UI::inputInt("Dinh dang (1 = .txt, 2 = .csv): ", 1, 2);
+    if (kind < 1) return;
+    std::string def = lib.dir() + (kind == 1 ? "/books_export.txt" : "/books_export.csv");
+    std::string path = UI::inputOptional("Duong dan file [" + def + "]: ", 200);
+    if (path.empty()) path = def;
+    UI::printResult(kind == 1 ? Exporter::exportBooksTxt(lib, path) : Exporter::exportBooksCsv(lib, path));
 }

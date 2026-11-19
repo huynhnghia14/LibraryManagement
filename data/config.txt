@@ -1,0 +1,12 @@
+# Cau hinh chuong trinh (key=value)
+finePerDay=2000
+maxBooksStudent=3
+maxBooksLecturer=5
+maxBooksNormal=2
+loanDaysStudent=14
+loanDaysLecturer=30
+loanDaysNormal=7
+cardValidMonths=12
+backupKeep=30
+useColor=1
+lang=vi

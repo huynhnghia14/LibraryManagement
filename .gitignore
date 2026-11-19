@@ -21,3 +21,12 @@ x64/
 Thumbs.db
 .~lock.*
 ~$*
+
+# Du lieu sinh ra khi chay chuong trinh (du lieu mau nam trong data/sample/)
+data/*.dat
+data/*.tmp
+data/log.txt
+data/books_export.*
+data/reports/
+data/backup/*
+!data/backup/.gitkeep

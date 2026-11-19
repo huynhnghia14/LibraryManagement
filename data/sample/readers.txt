@@ -1,0 +1,26 @@
+# CMND|Ho ten|Email|SDT|Loai the (0=SV,1=GV,2=Thuong)|Ngay dang ky
+079201234567|Nguyễn Văn An|an.nv1@gmail.com|0910000000|0|01/01/2026
+079201238678|Trần Thị Bình|binh.tt2@gmail.com|0913571357|0|04/02/2026
+079201242789|Lê Hoàng Cường|cuong.lh3@gmail.com|0917142714|0|07/03/2026
+079201246900|Phạm Minh Dũng|dung.pm4@gmail.com|0920714071|1|10/04/2026
+079201251011|Hoàng Thị Em|em.ht5@gmail.com|0924285428|0|13/05/2026
+079201255122|Huỳnh Gia Huy|huy.hg6@gmail.com|0927856785|2|16/06/2026
+079201259233|Võ Thị Hoa|hoa.vt7@gmail.com|0931428142|0|19/07/2026
+079201263344|Đặng Quốc Khánh|khanh.dq8@gmail.com|0934999499|0|22/08/2026
+079201267455|Bùi Thị Lan|lan.bt9@gmail.com|0938570856|1|25/09/2026
+079201271566|Đỗ Minh Long|long.dm10@gmail.com|0942142213|0|28/01/2026
+079201275677|Ngô Thị Mai|mai.nt11@gmail.com|0945713570|0|03/02/2026
+079201279788|Dương Văn Nam|nam.dv12@gmail.com|0949284927|0|06/03/2026
+079201283899|Lý Thị Oanh|oanh.lt13@gmail.com|0952856284|2|09/04/2026
+079201288010|Phan Thanh Phong|phong.pt14@gmail.com|0956427641|0|12/05/2026
+079201292121|Trương Thị Quỳnh|quynh.tt15@gmail.com|0959998998|0|15/06/2026
+079201296232|Đinh Văn Sơn|son.dv16@gmail.com|0963570355|1|18/07/2026
+079201300343|Mai Thị Thảo|thao.mt17@gmail.com|0967141712|0|21/08/2026
+079201304454|Tạ Minh Tuấn|tuan.tm18@gmail.com|0970713069|0|24/09/2026
+079201308565|Cao Thị Uyên|uyen.ct19@gmail.com|0974284426|0|27/01/2026
+079201312676|Lâm Văn Vinh|vinh.lv20@gmail.com|0977855783|2|02/02/2026
+079201316787|Châu Thị Xuân|xuan.ct21@gmail.com|0981427140|0|05/03/2026
+079201320898|Hồ Văn Ý|y.hv22@gmail.com|0984998497|1|08/04/2026
+079201325009|Kiều Thị Yến|yen.kt23@gmail.com|0988569854|0|11/05/2026
+079201329120|Tôn Thất Bảo|bao.tt24@gmail.com|0992141211|0|14/06/2026
+079201333231|La Thị Cúc|cuc.lt25@gmail.com|0995712568|0|17/07/2026

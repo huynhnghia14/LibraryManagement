@@ -1,5 +1,6 @@
 #include "Menu.h"
 #include "UI.h"
+#include "Logger.h"
 
 #include <iostream>
 
@@ -11,6 +12,11 @@ int showMenu(const std::string& title, const char* const items[], int n) {
 }
 
 Menu::Menu(Library& l) : lib(l), bookSvc(l), readerSvc(l) {}
+
+void Menu::commit(const Result& r) {
+    UI::printResult(r);
+    if (r.ok && lib.dirty && !lib.save()) UI::printMessage("Khong ghi duoc du lieu ra file!", false);
+}
 
 void Menu::notImplemented(int week) {
     UI::printMessage("Chuc nang se duoc cai dat o tuan " + std::to_string(week), false);
@@ -61,10 +67,3 @@ void Menu::recommendMenu() {
     while ((c = showMenu("GOI Y - TIM KIEM NANG CAO", ITEMS, 4)) > 0) notImplemented(c <= 2 ? 7 : 8);
 }
 
-void Menu::systemMenu() {
-    static const char* const ITEMS[] = {
-        "1. Sao luu du lieu", "2. Phuc hoi tu sao luu", "3. Quan ly tai khoan (Admin)",
-        "4. Doi mat khau", "5. Ngon ngu Viet / Anh", "6. Xem nhat ky (log)"
-    };
-    while (showMenu("HE THONG", ITEMS, 6) > 0) notImplemented(5);
-}

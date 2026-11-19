@@ -1,5 +1,9 @@
 // Kiểm tra các header biên dịch được và struct lưu file là POD (ghi bằng fwrite)
 #include "Library.h"
+#include "Transaction.h"
+#include "FileStorage.h"
+#include "Logger.h"
+#include "Exporter.h"
 #include "BookService.h"
 #include "ReaderService.h"
 #include "Menu.h"
@@ -13,6 +17,9 @@
 static_assert(std::is_trivially_copyable<Date>::value, "Date phai la POD");
 static_assert(std::is_trivially_copyable<Book>::value, "Book phai la POD");
 static_assert(std::is_trivially_copyable<Reader>::value, "Reader phai la POD");
+static_assert(std::is_trivially_copyable<BorrowTicket>::value, "BorrowTicket phai la POD");
+static_assert(std::is_trivially_copyable<Transaction>::value, "Transaction phai la POD");
+static_assert(sizeof(FileHeader) == 16, "FileHeader phai 16 byte");
 
 int main() {
     Result ok = Result::success("x");

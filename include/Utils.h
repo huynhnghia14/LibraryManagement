@@ -14,6 +14,7 @@ namespace Utils {
     void copyStr(char* dst, const std::string& src, int maxLen);   // chép tối đa maxLen ký tự + '\0'
     int  displayWidth(const std::string& s);        // số ký tự hiển thị của chuỗi UTF-8
     int  currentYear();
+    int  split(const std::string& line, char sep, std::string parts[], int maxParts);   // trả về số phần
 }
 
 #endif

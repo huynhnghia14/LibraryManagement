@@ -20,6 +20,8 @@ class Menu {
     void removeBookUI();
     void findBookUI();
     void listBooksUI(bool byTitle);
+    void importBooksUI();
+    void exportBooksUI();
     void printBookHeader();
     void printBook(const Book& b);
 
@@ -38,7 +40,13 @@ class Menu {
     void borrowMenu();
     void statsMenu();
     void recommendMenu();
+    // Hệ thống (MenuSystem.cpp)
     void systemMenu();
+    void backupUI();
+    void restoreUI();
+    void viewLogUI();
+
+    void commit(const Result& r);   // in kết quả, lưu file ngay nếu dữ liệu thay đổi
     void notImplemented(int week);
 
 public:
