@@ -5,22 +5,37 @@
 #include "Library.h"
 #include "Result.h"
 
-// Quản lý sách (FR-B-01..09)
+// Quản lý sách (FR-B): thêm / sửa / xóa / tìm / in danh mục
 class BookService {
     Library& lib;
 
 public:
     explicit BookService(Library& l) : lib(l) {}
 
+    static Book   makeBook(const std::string& isbn, const std::string& title, const std::string& author,
+                           const std::string& category, int year, int quantity);
+    static Result validate(const Book& b);
+
     Result addBook(const Book& b);
-    Result editBook(const std::string& isbn, const Book& updated);
+    Result editBook(const std::string& isbn, const Book& updated);   // không đổi ISBN
     Result removeBook(const std::string& isbn);
     Book*  findByIsbn(const std::string& isbn);
-    template <typename F> void listByIsbn(F visit);     // in-order AVL
-    template <typename F> void listByTitle(F visit);    // in-order BST
-    DynamicArray<std::string> suggestTitle(const std::string& prefix, int limit = 20);  // Trie
-    Result importTxt(const std::string& path);
-    Result exportTxt(const std::string& path);
+    int    count() const { return lib.books.size(); }
+
+    // visit(const Book&) theo ISBN tăng dần – duyệt in-order cây AVL
+    template <typename F>
+    void listByIsbn(F visit) {
+        lib.books.inorder([&](const std::string&, Book& b) { visit(b); });
+    }
+
+    // visit(const Book&) theo tên A-Z – duyệt in-order cây BST
+    template <typename F>
+    void listByTitle(F visit) {
+        lib.byTitle.inorder([&](const std::string&, std::string& isbn) {
+            Book* b = lib.books.find(isbn);
+            if (b) visit(*b);
+        });
+    }
 };
 
 #endif
